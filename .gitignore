@@ -1,0 +1,14 @@
+.eunit
+deps
+*.o
+*~
+*.beam
+*.plt
+ebin/
+.eunit/*
+.DS_Store
+erl_crash.dump
+Mnesia*
+.depsolver_plt
+doc
+dialyzer.txt

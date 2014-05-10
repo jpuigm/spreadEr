@@ -1,0 +1,14 @@
+{application, spreadEr,
+ [
+  {description, "Erlang Data spreader"},
+  {vsn, "0.1"},
+  {registered, []},
+  {applications, [
+                  kernel,
+                  stdlib,
+                  mnesia,
+                  resource_discovery
+                 ]},
+  {mod, { spreadEr_app, []}},
+  {env, [{cluster_size, 1}]}
+ ]}.
