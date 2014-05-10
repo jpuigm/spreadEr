@@ -1,3 +1,3 @@
-= Erlang data spreader =
+# Erlang data spreader #
 
-`spreadEr` makes it easy to spin off a mnesia-based storage solution across different nodes.
+spreadEr is an Erlang library that  makes it easy to spin off a mnesia-based storage solution across different nodes.
