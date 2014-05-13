@@ -1,6 +1,6 @@
 {application, spreadEr,
  [
-  {description, "Erlang Data spreader"},
+  {description, "Erlang data spreader"},
   {vsn, "0.1"},
   {registered, []},
   {applications, [

@@ -9,6 +9,8 @@
 
 -include("tables.hrl").
 
+-define(DEFAULT_CLUSTER_SIZE, 1).
+
 %% ===================================================================
 %% API
 %% ===================================================================
@@ -28,7 +30,7 @@ wait_for_nodes() ->
         false ->
             ok; %% new node joining cluster, no need to wait.
         true ->
-            wait_for(get_env(spreadEr, cluster_size, 1))
+            wait_for(get_env(spreadEr, cluster_size, ?DEFAULT_CLUSTER_SIZE))
     end.
 
 master_node() ->
