@@ -24,14 +24,16 @@ start() ->
 start(_StartType, _StartArgs) ->
 
     Actions = [subscribe, contact, sync],
-    [ ok = erlang:apply(spreadEr, Action, []) || Action <- Actions ],
+    [ ok = spreadEr:apply(Action) || Action <- Actions ],
     
     MasterActions = [wait_for_nodes, mnesia_setup],
-    [ ok = erlang:apply(spreadEr, Action, []) || Action <- MasterActions,
+    [ ok = spreadEr:apply(Action) || Action <- MasterActions,
                                                  node() == spreadEr:master_node() ],
 
     spreadEr_sup:start_link().
 
 stop(_State) ->
     ok.
+
+
 

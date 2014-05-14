@@ -1,6 +1,7 @@
 -module(spreadEr).
 
--export([subscribe/0, 
+-export([apply/1,
+         subscribe/0,
          sync/0,
          contact/0,
          wait_for_nodes/0,
@@ -44,7 +45,10 @@ mnesia_setup() ->
     {_, []} = rpc:multicall(Nodes, application, start, [mnesia]),
     [ mnesia:create_table(Name, Def) || {Name, Def} <- ?TABLES ],
     mnesia:wait_for_tables([Name || {Name, _} <- ?TABLES], 20000).
-    
+
+apply(Action) ->
+    lager:info("Starting ~p action", Action),
+    ?MODULE:Action().
 
 %% ===================================================================
 %% Internal
