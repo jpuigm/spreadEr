@@ -1,7 +1,7 @@
 -module(spreadEr).
 
--export([apply/1,
-         subscribe/0,
+-export([apply/1]).
+-export([subscribe/0,
          sync/0,
          contact/0,
          wait_for_nodes/0,
@@ -47,7 +47,7 @@ mnesia_setup() ->
     mnesia:wait_for_tables([Name || {Name, _} <- ?TABLES], 20000).
 
 apply(Action) ->
-    lager:info("Starting ~p action", Action),
+    lager:log(info, "Starting ~p action", [Action]),
     ?MODULE:Action().
 
 %% ===================================================================
